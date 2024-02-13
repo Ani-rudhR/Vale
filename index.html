@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Proposal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffcccc; /* Soft pink background */
+    }
+    header {
+      background-color: #ff3366; /* Vibrant pink header */
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    section {
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .sliding-message {
+      font-size: 24px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .show {
+      opacity: 1 !important;
+    }
+    .proposal-message {
+      font-size: 24px;
+      margin-bottom: 20px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .proposal-message p {
+      margin: 10px 0;
+    }
+    .proposal-button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative; /* Make sure the position is relative for absolute positioning of the buttons */
+    }
+    .proposal-button {
+      background-color: #ff3366; /* Vibrant pink button */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      margin-right: 10px;
+    }
+    .proposal-button:hover {
+      background-color: #cc0052; /* Darker pink on hover */
+    }
+    .no-button {
+  background-color: #ff3366; /* Vibrant pink button */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  bottom: 0px; /* Position it at the bottom */
+  left: calc(50% + 60px); /* Position it next to the "Yes" button, initial position */
+}
+
+    .no-button:hover {
+      animation: moveNoButton 2s infinite alternate; /* Apply animation on hover */
+    }
+
+    @keyframes moveNoButton {
+      0% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(calc(-50% + 40px), calc(-50% + 40px)); /* Move the button to a random position */
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Hello Love !!</h1>
+</header>
+
+<section>
+
+  <img class="image" src="Me.jpeg" alt="Image" style="max-width: 200px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out;">
+  
+  <div class="proposal-message">
+    <p>As Valentine's Day approaches,</p>
+    <p>I want to take this opportunity to express my deepest love and affection for you.</p>
+    <p>You mean the world to me,</p>
+    <p>I know we have our ups and downs, but trust me when I say this I have never been more happier</p> 
+    <p>Also this below lyrics is dedicated specially for you 
+    <p>Baby, you light up my world like nobody else......</p>
+    <p>Lastly , all I wanted to ask is </p>
+    <p><strong>Will you make me the only person in the world to take the moon on a date by being my Valentine?</strong></p>
+    <p>Forever Yours and only Yours,</p>
+    <p>Your Baby </p>
+    <p><strong></strong></p>
+  </div>
+  
+  <div class="proposal-button-container">
+    <button class="proposal-button" onclick="celebrate()">Yes, I will!</button>
+    <button class="no-button" onmouseover="moveNoButton()">No</button>
+  </div>
+  
+  <div id="celebration" class="hidden">
+    <p style="font-size: 24px; color: #ff3366;">Hooray!</p>
+    <p style="font-size: 24px; color: #ff3366;">🎉 Let's celebrate! 🎉</p>
+    <p style="font-size: 24px; color: #ff3366;">💐🌹🌼🌷🌸🎇🎆</p>
+  </div>
+</section>
+
+<script>
+  setTimeout(function() {
+    var image = document.querySelector('.image');
+    image.style.transform = 'scale(1)';
+  }, 1000); // Delay for image
+  
+  setTimeout(function() {
+    var proposalMessages = document.querySelector('.proposal-message');
+    proposalMessages.style.opacity = '1';
+  }, 1500); // Delay for proposal messages
+  
+  function celebrate() {
+    document.getElementById("celebration").classList.remove("hidden");
+  }
+
+  function moveNoButton() {
+    var button = document.querySelector('.no-button');
+    var newPositionX = Math.random() * (window.innerWidth - button.offsetWidth);
+    var newPositionY = Math.random() * (window.innerHeight - button.offsetHeight);
+    button.style.left = newPositionX + 'px';
+    button.style.right = newPositionY + 'px';
+  }
+</script>
+
+</body>
+</html>
+ 
